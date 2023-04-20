@@ -5,7 +5,10 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {
     private Rigidbody ballRigidbody;
+    private float centerOfMass = 1f;
     // Start is called before the first frame update
+    public global::System.Single CenterOfMass { get => centerOfMass; set => centerOfMass = value; }
+
     void Start()
     {
         // Get reference to the Rigidbody component
@@ -13,7 +16,10 @@ public class Ball : MonoBehaviour
         // Set initial velocity
         Vector3 initialVelocity = new Vector3(0f, 10f, 0f); // Upward velocity of 10 units per second
         ballRigidbody.velocity = initialVelocity;
-    }
+        ballRigidbody.centerOfMass = new Vector3(0, CenterOfMass, 0);
+
+}
+
 
     void OnCollisionEnter(Collision collision)
     {
@@ -21,22 +27,20 @@ public class Ball : MonoBehaviour
         {
             // Get direction away from the player
             Vector3 direction = transform.position - collision.gameObject.transform.position;
-            direction.y = 0.8f; // Remove the vertical component for a 2D-like parabolic trajectory
+            direction.y = 1f; // Remove the vertical component for a 2D-like parabolic trajectory
             // Normalize the direction
             direction.Normalize();
             // Apply force to the ball in the direction away from the player
             Vector3 force = direction * 7f; // Adjust the force based on desired strength
             ballRigidbody.AddForce(force, ForceMode.Impulse);
 
-
         }else if(collision.gameObject.CompareTag("Border")) {
             Vector3 direction = transform.position - collision.gameObject.transform.position;
-            direction.y = 1f; // Remove the vertical component for a 2D-like parabolic trajectory
             // Normalize the direction
             direction.Normalize();
-
             // Apply force to the ball in the direction away from the player
-            Vector3 force = direction * 3f; // Adjust the force based on desired strength
+            Vector3 force = direction * 5f; // Adjust the force based on desired strength
+
             ballRigidbody.AddForce(force, ForceMode.Impulse);
 
         }
@@ -50,7 +54,10 @@ public class Ball : MonoBehaviour
     {
         if(transform.position.y <= 0.72)
         {
-            transform.position = new Vector3(0f,10f,0f);
+            ballRigidbody.velocity = Vector3.zero;
+            ballRigidbody.angularVelocity = Vector3.zero;
+            transform.position = new Vector3(Random.Range(4f,-7f),20f,Random.Range(-2f,-12));
+            PlayerController.playerBegin = true;
         }
     }
 }
