@@ -22,7 +22,7 @@ public class SpawnManager : MonoBehaviour
     
     void SpawnRandomCollectiable()
     {
-        int collectiablesIndex = Random.Range(0, collectiables.Length-1);
+        int collectiablesIndex = Random.Range(0, collectiables.Length);
         Vector3 spawnPos = new Vector3(Random.Range(-xRange, xRange), 4, Random.Range(-zRange, zRange));
         Instantiate(collectiables[collectiablesIndex], spawnPos, collectiables[collectiablesIndex].transform.rotation);
     }
