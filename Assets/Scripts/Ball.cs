@@ -19,6 +19,7 @@ public class Ball : MonoBehaviour
         ballRigidbody.centerOfMass = new Vector3(0, CenterOfMass, 0);
 
 }
+  
 
 
     void OnCollisionEnter(Collision collision)
@@ -27,11 +28,11 @@ public class Ball : MonoBehaviour
         {
             // Get direction away from the player
             Vector3 direction = transform.position - collision.gameObject.transform.position;
-            direction.y = 1f; // Remove the vertical component for a 2D-like parabolic trajectory
+            direction.y = 5f; // Remove the vertical component for a 2D-like parabolic trajectory
             // Normalize the direction
             direction.Normalize();
             // Apply force to the ball in the direction away from the player
-            Vector3 force = direction * 7f; // Adjust the force based on desired strength
+            Vector3 force = direction * 5f; // Adjust the force based on desired strength
             ballRigidbody.AddForce(force, ForceMode.Impulse);
 
         }else if(collision.gameObject.CompareTag("Border")) {
@@ -52,12 +53,12 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y <= 0.72)
+        if (transform.position.y <= 0.50)
         {
             ballRigidbody.velocity = Vector3.zero;
             ballRigidbody.angularVelocity = Vector3.zero;
-            transform.position = new Vector3(Random.Range(4f,-7f),20f,Random.Range(-2f,-12));
-            PlayerController.playerBegin = true;
+            transform.position = new Vector3(Random.Range(4f,-7f),20f,Random.Range(-7f,-12f));
+            //PlayerController.playerReset = true;
         }
     }
 }
