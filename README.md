@@ -1,7 +1,7 @@
 # Goodminton
 GameDevProject
 ## Contributors
-* Mehmet Can Tekgun 
+* Mehmet Can Tekgul
 * Halim Abdurrahman Ceylan
 * Şevval Özekinci -Yutubır 
 ## Inside Game!
