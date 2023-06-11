@@ -48,12 +48,16 @@ public class PlayerController : MonoBehaviour
 
         if (playerReset)
         {
-            transform.position = new Vector3(3f, 5f, -8f);
+            transform.position = new Vector3(5f, 1.5f, -17f);
             // Reset velocity to zero
             rb.velocity = Vector3.zero;
             // Reset angular velocity to zero
             rb.angularVelocity = Vector3.zero;
             playerReset = false;
         }
+    }
+    public void setPlayerReset()
+    {
+        playerReset = true;
     }
 }

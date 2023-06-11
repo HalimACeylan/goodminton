@@ -18,7 +18,7 @@ public class NpcRandomController : MonoBehaviour
 
     private void Start()
     {
-        ballLocation = GameObject.FindWithTag("ball");
+        ballLocation = GameObject.FindWithTag("Ball");
         aiRigidbody = GetComponent<Rigidbody>();
         ballTransform = ballLocation.transform;
         current = GetComponent<Renderer>().material.color;
@@ -51,10 +51,6 @@ public class NpcRandomController : MonoBehaviour
         {
             // If the AI character is outside the boundaries, set its position to a fixed location
             transform.rotation = initialRotation;
-            transform.position = new Vector3(-0.8f, 0.72f, 7.29f);
-            aiRigidbody.velocity = Vector3.zero; // Stop the AI character's movement
-            aiRigidbody.angularVelocity = Vector3.zero;
-
 
         }
 
