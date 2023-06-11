@@ -11,8 +11,19 @@ public class ProjectileMovement : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Destroy(gameObject);
+            Debug.Log(other.gameObject.tag + "hit by projectile");
+            other.gameObject.transform.parent.GetComponent<NpcRandomController>().setTime(10);
+
+        }
+
+    }
+        // Update is called once per frame
+        void Update()
     {
         transform.Translate(projectileSpeed * Time.deltaTime * Vector3.back);
         if(transform.position.z > 20 && gameObject != null)

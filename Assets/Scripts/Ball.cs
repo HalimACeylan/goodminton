@@ -29,11 +29,11 @@ public class Ball : MonoBehaviour
         {
             // Get direction away from the player
             Vector3 direction = transform.position - collision.gameObject.transform.position;
-            direction.y = 6f; // Remove the vertical component for a 2D-like parabolic trajectory
+            direction.y = 5f; // Remove the vertical component for a 2D-like parabolic trajectory
             // Normalize the direction
             direction.Normalize();
             // Apply force to the ball in the direction away from the player
-            Vector3 force = direction * 5.5f; // Adjust the force based on desired strength
+            Vector3 force = direction * 4f; // Adjust the force based on desired strength
             ballRigidbody.AddForce(force, ForceMode.Impulse);
 
         }else if(collision.gameObject.CompareTag("Border")) {

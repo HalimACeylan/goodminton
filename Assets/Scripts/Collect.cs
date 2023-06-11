@@ -22,7 +22,7 @@ public class Collect : MonoBehaviour
         if (other.gameObject.tag == "Player")
         {
             Destroy(gameObject);
-            Debug.Log(other.gameObject.tag + "collect a box");
+            Debug.Log(other.gameObject.transform.parent.name + "collect a box");
         }
         else
         {

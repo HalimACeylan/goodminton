@@ -18,12 +18,6 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void FixRotation()
-    {
-        // Set the rotation of the object to a fixed value or reset it to its original rotation
-        // For example, set it to a fixed rotation in this case
-        transform.rotation = Quaternion.Euler(90f, 0f, 0f);
-    }
 
     void LaunchProjectile()
     {
@@ -34,6 +28,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        rb.constraints = RigidbodyConstraints.FreezeRotation;
         // Get input for horizontal and vertical axes
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
