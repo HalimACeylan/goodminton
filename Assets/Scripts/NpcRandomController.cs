@@ -18,7 +18,7 @@ public class NpcRandomController : MonoBehaviour
 
     private void Start()
     {
-        ballLocation = GameObject.FindWithTag("ball");
+        ballLocation = GameObject.FindWithTag("Ball");
         aiRigidbody = GetComponent<Rigidbody>();
         ballTransform = ballLocation.transform;
         current = GetComponent<Renderer>().material.color;

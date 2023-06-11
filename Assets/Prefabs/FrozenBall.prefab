@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 4673243241350992863}
   - component: {fileID: 1821608139802945037}
   - component: {fileID: -4435152641979164932}
-  - component: {fileID: -5798619837557235519}
   - component: {fileID: 4235240221454729015}
   m_Layer: 0
   m_Name: FrozenBall
@@ -116,18 +115,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-5798619837557235519
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 648819007941313395}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cea7d34c0574ecc49b9e715f1cb5e85f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &4235240221454729015
 MonoBehaviour:
   m_ObjectHideFlags: 0
