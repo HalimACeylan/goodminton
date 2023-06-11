@@ -29,6 +29,10 @@ public class WindZone : MonoBehaviour
     {
         strength = strength - 0.2f;
     }
+    public void strangthReset()
+    {
+        strength = 0;
+    }
     void OnTriggerStay(Collider other)
     {
         if (other.gameObject.tag == "Player")

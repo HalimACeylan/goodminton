@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 public class Collect : MonoBehaviour
 {
-    private WindZone windController;
     private GameObject windZone;
     public float delay = 2.0f; // Delay in seconds before destroying the collectible
     public bool amIBlue = false; 
