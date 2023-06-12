@@ -58,7 +58,7 @@ public class Ball : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Border"))
         {
-            isTurnAi = Score();
+             isTurnAi = Score();
              Turn(isTurnAi);
 
         }

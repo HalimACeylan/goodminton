@@ -7,7 +7,7 @@ public class SpawnManager : MonoBehaviour
     public GameObject[] collectiables;
     public int xRange = 8;
     public int zRange = 15;
-    public float startDelay = 3.0f;
+    public float startDelay = 1.9f;
     public float spawnInterval = 1.5f;
     // Start is called before the first frame update
     void Start()
