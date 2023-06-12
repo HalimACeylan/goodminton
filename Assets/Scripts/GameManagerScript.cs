@@ -28,9 +28,15 @@ public class GameManagerScript : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-            {
+    {
 
-        if(aiScore == 21 || playerScore == 21)
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            PauseGame();
+        }
+
+        if (aiScore == 21 || playerScore == 21)
         {
             gameOver();
         }
@@ -38,21 +44,26 @@ public class GameManagerScript : MonoBehaviour
         {
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
-        }else
+        } else
         {
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }
-        if(windCountDown <= 0)
+        if (windCountDown <= 0)
         {
             windZone.GetComponent<WindZone>().strangthReset();
             windCountDown = 5;
 
         }
+
+
     }
     public void gameOver()
     {
+        Time.timeScale = 0;
         gameOverUI.SetActive(true);
+        gameOverUI.transform.GetChild(0).gameObject.SetActive(false);
+
     }
     public void restart()
     {
@@ -90,5 +101,20 @@ public class GameManagerScript : MonoBehaviour
         }
 
         return isTurnAi;
+    }
+
+
+    public void PauseGame()
+    {
+        Time.timeScale = 0;
+        gameOverUI.SetActive(true);
+        gameOverUI.transform.GetChild(0).gameObject.SetActive(true);
+    }
+    public void ResumeGame()
+    {
+        Time.timeScale = 1;
+        gameOverUI.SetActive(false);
+
+
     }
 }

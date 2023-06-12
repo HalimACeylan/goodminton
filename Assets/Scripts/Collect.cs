@@ -4,7 +4,7 @@ using UnityEngine;
 public class Collect : MonoBehaviour
 {
     private GameObject windZone;
-    public float delay = 2.0f; // Delay in seconds before destroying the collectible
+    public float delay = 3.0f; // Delay in seconds before destroying the collectible
     public bool amIBlue = false; 
     void Start()
     {
@@ -21,7 +21,7 @@ public class Collect : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             Destroy(gameObject);
             if(amIBlue)
