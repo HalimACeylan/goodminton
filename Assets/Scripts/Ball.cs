@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,11 +12,19 @@ public class Ball : MonoBehaviour
     public GameObject gameManagerScript;
     public bool isLastHitByAi = false;
     public bool isTurnAi = false;
+
+    public AudioClip soundHitting;
+
+    private AudioSource audioSource;
+
+
     // Start is called before the first frame update
     public global::System.Single CenterOfMass { get => centerOfMass; set => centerOfMass = value; }
 
     void Start()
-    {   
+    {
+
+
         ballPlayerResetPoint = new Vector3(5.4f, 8.2f, -14.8f);
         ballAiResetPoint = new Vector3(-4.4f, 8.2f, 9.2f);
         gameManagerScript = GameObject.Find("GameManager");
@@ -27,7 +35,11 @@ public class Ball : MonoBehaviour
         ballRigidbody.velocity = initialVelocity;
         ballRigidbody.centerOfMass = new Vector3(0, CenterOfMass, 0);
 
-}
+
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.clip = soundHitting;
+    }
   
 
 
@@ -35,8 +47,12 @@ public class Ball : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player"))
         {
+            if (audioSource != null && soundHitting != null)
+            {
+                audioSource.PlayOneShot(soundHitting);
+            }
 
-            if(collision.gameObject.transform.name == "Player")
+            if (collision.gameObject.transform.name == "Player")
             {
                 isLastHitByAi = false;
 
@@ -54,6 +70,8 @@ public class Ball : MonoBehaviour
             // Apply force to the ball in the direction away from the player
             Vector3 force = direction * 5f; // Adjust the force based on desired strength
             ballRigidbody.AddForce(force, ForceMode.Impulse);
+
+
 
         }
         else if (collision.gameObject.CompareTag("Border"))
@@ -89,6 +107,7 @@ public class Ball : MonoBehaviour
             Turn(isTurnAi);
 
         }
+        
     }
 
     // Update is called once per frame

@@ -6,6 +6,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 
+
 public class GameManagerScript : MonoBehaviour
 {
 
@@ -16,6 +17,10 @@ public class GameManagerScript : MonoBehaviour
     public int playerScore;
     public GameObject scoreBoard;
     public int windCountDown = 5;
+
+    public AudioClip backgroundMusic;
+    private AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +29,11 @@ public class GameManagerScript : MonoBehaviour
         scoreBoard = GameObject.Find("ScoreBoard");
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+
+        audioSource = GetComponent<AudioSource>();
+        audioSource.clip = backgroundMusic;
+        audioSource.loop = true;
+        audioSource.Play();
     }
 
     // Update is called once per frame
@@ -34,6 +44,11 @@ public class GameManagerScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             PauseGame();
+
+            if (audioSource.isPlaying)
+            {
+                audioSource.Pause();
+            }
         }
 
         if (aiScore == 21 || playerScore == 21)
@@ -58,6 +73,8 @@ public class GameManagerScript : MonoBehaviour
 
 
     }
+
+
     public void gameOver()
     {
         Time.timeScale = 0;
@@ -109,11 +126,19 @@ public class GameManagerScript : MonoBehaviour
         Time.timeScale = 0;
         gameOverUI.SetActive(true);
         gameOverUI.transform.GetChild(0).gameObject.SetActive(true);
+
+        
     }
     public void ResumeGame()
     {
         Time.timeScale = 1;
         gameOverUI.SetActive(false);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.Play();
+        }
+
 
 
     }
