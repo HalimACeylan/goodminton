@@ -3,7 +3,10 @@ guid: c4ba4f80bc75ed7498bceac5eb183654
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - gameOverUI: {instanceID: 0}
+  - scoreBoard: {instanceID: 0}
+  - backgroundMusic: {fileID: 8300000, guid: 493105a2b6795bb4b8ab039f05ee7d0f, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
