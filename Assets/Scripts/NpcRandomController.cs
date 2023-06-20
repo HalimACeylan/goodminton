@@ -5,16 +5,16 @@ using UnityEngine;
 public class NpcRandomController : MonoBehaviour
 {
     public Transform ballTransform;  // Reference to the ball's transform
-    public float movementSpeed = 20f; // Movement speed of the AI character
+    public float movementSpeed = 16f; // Movement speed of the AI character
     public Quaternion initialRotation;
     public GameObject ballLocation;
     public Rigidbody aiRigidbody;
     private float timeRemaining = 0;
     private Color current;
-    public float zMin = 4f;  // Minimum Z boundary
-    public float zMax = 14f;    // Maximum Z boundary
-    public float xMin = -6f;   // Minimum X boundary
-    public float xMax = 5f;    // Maximum X boundary
+    public float zMin = 7f;  // Minimum Z boundary
+    public float zMax = 15f;    // Maximum Z boundary
+    public float xMin = -8f;   // Minimum X boundary
+    public float xMax = 11f;    // Maximum X boundary
 
     private void Start()
     {
@@ -32,17 +32,15 @@ public class NpcRandomController : MonoBehaviour
             // Check if the ball transform is available
             if (zMin < ballTransform.position.z && ballTransform.position.z < zMax && xMin < ballTransform.position.x && ballTransform.position.x < xMax)
             {
-
                 // Calculate the direction from the AI character to the ball
                 Vector3 direction = ballTransform.position - transform.position;
                 direction.y = 0f;
                 direction.z = direction.z + 4.0f;
                 direction.Normalize();
                 Transform head = this.transform.Find("a1").transform;
+                // Move the AI character towards the ball
                 Vector3 newPosition = transform.position + new Vector3(direction.x  * movementSpeed * Time.deltaTime, 0, direction.z * movementSpeed * Time.deltaTime);
                 transform.position = newPosition;
-
-                // Move the AI character towards the ball
             }
 
 
@@ -51,10 +49,16 @@ public class NpcRandomController : MonoBehaviour
         {
             // If the AI character is outside the boundaries, set its position to a fixed location
             transform.rotation = initialRotation;
+            aiRigidbody.velocity = Vector3.zero;
+            // Reset angular velocity to zero
+            aiRigidbody.angularVelocity = Vector3.zero;
 
+            transform.position = new Vector3(0f, 2f, 12f);
         }
 
-        if (timeRemaining > 0)
+
+
+            if (timeRemaining > 0)
         {
             timeRemaining -= Time.deltaTime;
             movementSpeed = 1f;

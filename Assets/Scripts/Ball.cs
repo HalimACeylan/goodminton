@@ -64,7 +64,7 @@ public class Ball : MonoBehaviour
             ballRigidbody.angularVelocity = Vector3.zero;
             // Get direction away from the player
             Vector3 direction = transform.position - collision.gameObject.transform.position;
-            direction.y = 6f; // Remove the vertical component for a 2D-like parabolic trajectory
+            direction.y = 5.8f; // Remove the vertical component for a 2D-like parabolic trajectory
             // Normalize the direction
             direction.Normalize();
             // Apply force to the ball in the direction away from the player

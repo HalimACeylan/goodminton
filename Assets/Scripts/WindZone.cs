@@ -8,6 +8,7 @@ public class WindZone : MonoBehaviour
     public float strength = 1f;
     public GameObject rightPartic;
     public GameObject leftPartic;
+    private AudioSource m_MyAudioSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,8 @@ public class WindZone : MonoBehaviour
         leftPartic = this.gameObject.transform.GetChild(0).GetChild(0).gameObject;
         leftPartic.GetComponent<ParticleSystem>().Stop();
         rightPartic.GetComponent<ParticleSystem>().Stop();
-
+        m_MyAudioSource = GetComponent<AudioSource>();
+        m_MyAudioSource.Play();
 
     }
     void FixedUpdate()
@@ -62,6 +64,8 @@ public class WindZone : MonoBehaviour
         {
             isLeft = strength < 0;
 
+            m_MyAudioSource.volume = Mathf.Abs(strength)/2;
+
             if (isLeft)
             {
                 rightPartic.GetComponent<ParticleSystem>().Stop();
@@ -78,6 +82,7 @@ public class WindZone : MonoBehaviour
 
             }
         }
+        
         if(strength > 1)
         {
             strength = 1;
