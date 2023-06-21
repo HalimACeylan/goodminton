@@ -3,11 +3,13 @@ GameDevProject
 ## Contributors
 * Mehmet Can Tekgul
 * Halim Abdurrahman Ceylan
-* Şevval Özekinci -Yutubır 
+* Şevval Özekinci -Yutubır
+### Now You Can Play 
+[You can play using this repository Link](https://github.com/MehmetCanTekgul/Goodminton)
 ## Project Design Document!
-- <img src="https://user-images.githubusercontent.com/64225727/235352989-d24f97e2-b011-41d8-a4f3-4ae2777ee824.jpg" alt="Screenshot" width="500" height="700" />
+- <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/64225727/247513652-ec4475fd-afba-45ce-abc2-9a2145d92055.jpg" alt="Screenshot" width="500" height="700" />
 
-- <img src="https://user-images.githubusercontent.com/64225727/235352991-a12de236-93ba-44fe-8fc1-095f05e73707.jpg" alt="Screenshot" width="500" height="700" />
+- <img src="https://github.com/HalimACeylan/goodminton/assets/64225727/8b3463ae-720e-4c19-b281-34f6c3f2d0d4" alt="Screenshot" width="500" height="700" />
 ## Inside Game!
 ### Demo Version
 - <img src="https://user-images.githubusercontent.com/64225727/234386818-b534272f-2847-448a-99fb-be165f271e4f.png" alt="Screenshot" width="600" height="400" />
